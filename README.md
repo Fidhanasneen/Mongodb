@@ -235,6 +235,9 @@ Students
 ```js
 >db.Students.find({ Name:'Aleena' })
 
+
+
+
 {
         "_id" : ObjectId("63638af8c3e198ff6a8392d4"),
         "Name" : "Aleena",
@@ -256,6 +259,8 @@ Students
 
 ```js
 >db.Students.find().sort({ No: 1 }).pretty()
+
+
 
 
 {
@@ -327,6 +332,7 @@ Students
 
 
 
+
 {
         "_id" : ObjectId("63638af8c3e198ff6a8392d7"),
         "Name" : "Ajmala",
@@ -394,10 +400,13 @@ Students
 ```js
 >db.Students.find().count()
 
+
 5
 
 
 >db.Students.find({ Course: 'MSc DA' }).count()
+
+
 
 2
 
@@ -408,6 +417,8 @@ Students
 
 ```js
 >db.Students.find().limit(2).pretty()
+
+
 
 
 {
@@ -442,6 +453,7 @@ Students
 
 ```js
 >db.Students.find().limit(3).sort({Name:1}).pretty()
+
 
 
 
@@ -490,6 +502,7 @@ Students
 >db.Students.findOne({ Age: { $gt: 20 } })
 
 
+
 {
         "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
         "Name" : "Ardra",
@@ -516,6 +529,7 @@ Students
 })
 
 
+
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 
 ```
@@ -523,6 +537,7 @@ Students
 
 ```js
 >db.Students.findOne({ Name:'Navas' })
+
 
 
 {
@@ -558,6 +573,8 @@ Students
 })
 
 
+
+
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 
 ```
@@ -573,10 +590,13 @@ Students
 })
 
 
+
+
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 
 
 >db.Students.findOne({ Name:'Stalin' })
+
 
 
 
@@ -605,11 +625,16 @@ Students
 })
 
 
+
 { "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
 
 
 
+
+
+
 >db.Students.find().pretty()
+
 
 
 
@@ -692,6 +717,8 @@ Students
 
 
 
+
+
 >db.Students.find({Name:'Aleena'}).pretty()
 
 
@@ -717,6 +744,8 @@ Students
 >db.Students.deleteOne({ Name: 'Ajmala' })
 
 
+
+
 { "acknowledged" : true, "deletedCount" : 1 }
 
 
@@ -726,6 +755,8 @@ Students
 
 ```js
 >db.Students.deleteMany({ Course: 'MSc MI' })
+
+
 
 
 { "acknowledged" : true, "deletedCount" : 1 }
@@ -780,6 +811,8 @@ Students
 
 
 
+
+
 >db.Students.find({ No: { $gte: 8 } }).pretty()
 
 
@@ -816,6 +849,7 @@ Students
         ],
         "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
 }
+
 
 
 
