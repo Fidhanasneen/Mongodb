@@ -314,89 +314,365 @@ Students
 ### Descending
 
 ```js
-db.Students.find().sort({ title: -1 })
+>db.Students.find().sort({ No: -1 }).pretty()
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d7"),
+        "Name" : "Ajmala",
+        "Age" : 22,
+        "Course" : "MSc MI",
+        "No" : 18,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d6"),
+        "Name" : "Navas",
+        "Age" : 22,
+        "Course" : "MSc MI",
+        "No" : 16,
+        "Interest" : [
+                "Sports"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d4"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "Interest" : [
+                "Reading",
+                "Writing"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
+        "Name" : "Ardra",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 8,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 14:59:39 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 22,
+        "Course" : "MSc GA",
+        "No" : 4,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Count Documents
 
 ```js
-db.Students.find().count()
-db.Students.find({ category: 'news' }).count()
+>db.Students.find().count()
+
+5
+
+
+>db.Students.find({ Course: 'MSc DA' }).count()
+
+2
+
+
 ```
 
 ## Limit Documents
 
 ```js
-db.Students.find().limit(2)
+>db.Students.find().limit(2).pretty()
+
+
+{
+        "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
+        "Name" : "Ardra",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 8,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 14:59:39 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d4"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "Interest" : [
+                "Reading",
+                "Writing"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
+
 ```
 
 ## Chaining
 
 ```js
-db.Students.find().limit(2).sort({ title: 1 })
+>db.Students.find().limit(3).sort({Name:1}).pretty()
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d7"),
+        "Name" : "Ajmala",
+        "Age" : 22,
+        "Course" : "MSc MI",
+        "No" : 18,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d4"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "Interest" : [
+                "Reading",
+                "Writing"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
+        "Name" : "Ardra",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 8,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 14:59:39 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Find One Document
 
 ```js
-db.Students.findOne({ likes: { $gt: 3 } })
+>db.Students.findOne({ Age: { $gt: 20 } })
+
+
+{
+        "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
+        "Name" : "Ardra",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 8,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 14:59:39 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Update Document
 
 ```js
-db.Students.updateOne({ title: 'Post 1' },
+>db.Students.updateOne({ Name: 'Navas' },
 {
   $set: {
-    category: 'Tech'
+    Age: 23
   }
 })
+
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+```
+## After Updation
+
+```js
+>db.Students.findOne({ Name:'Navas' })
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d6"),
+        "Name" : "Navas",
+        "Age" : 23,
+        "Course" : "MSc MI",
+        "No" : 16,
+        "Interest" : [
+                "Sports"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Update Document or Insert if not Found
 
 ```js
-db.Students.updateOne({ title: 'Post 6' },
+>db.Students.updateOne({ Name: 'Ardra' },
 {
   $set: {
-    title: 'Post 6',
-    body: 'Body of post.',
-    category: 'News'
+  Name: 'Ardra Rajeesh',
+  Age: 22,
+  Course: 'MSc DA',
+  No: 7,
+  Interest: ['Reading', 'Music','Travel'],
+  date: Date()
   }
 },
 {
   upsert: true
 })
+
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
 ```
 
 ## Increment Field (`$inc`)
 
 ```js
-db.Students.updateOne({ title: 'Post 1' },
+>db.Students.updateOne({ Name:'Stalin' },
 {
   $inc: {
-    likes: 2
+    Age:1
   }
 })
+
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+>db.Students.findOne({ Name:'Stalin' })
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 23,
+        "Course" : "MSc GA",
+        "No" : 4,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Update Multiple Documents
 
 ```js
-db.Students.updateMany({}, {
+>db.Students.updateMany({}, {
   $inc: {
-    likes: 1
+    No: 1
   }
 })
+
+
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+
+
+
+>db.Students.find().pretty()
+
+
+{
+        "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
+        "Name" : "Ardra Rajeesh",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 8,
+        "Interest" : [
+                "Reading",
+                "Music",
+                "Travel"
+        ],
+        "date" : "Thu Nov 03 2022 16:30:11 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d4"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 10,
+        "Interest" : [
+                "Reading",
+                "Writing"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 23,
+        "Course" : "MSc GA",
+        "No" : 5,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d6"),
+        "Name" : "Navas",
+        "Age" : 23,
+        "Course" : "MSc MI",
+        "No" : 17,
+        "Interest" : [
+                "Sports"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d7"),
+        "Name" : "Ajmala",
+        "Age" : 22,
+        "Course" : "MSc MI",
+        "No" : 19,
+        "Interest" : [
+                "Reading",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
 ```
 
 ## Rename Field
 
 ```js
-db.Students.updateOne({ title: 'Post 2' },
+db.Students.updateOne({ Name: 'Aleena' },
 {
   $rename: {
-    likes: 'views'
+    Name: 'Aleena Vals Kuryan'
   }
 })
 ```
