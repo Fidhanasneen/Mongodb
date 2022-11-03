@@ -1,4 +1,4 @@
-# Mongodb
+# MongoDB
 ## Check `monosh` Version
 
 ```js
@@ -26,7 +26,7 @@ show dbs
 ## Create Or Switch Database
 
 ```js
-use blog
+use Big_Data
 ```
 
 ## Drop Database
@@ -38,7 +38,7 @@ db.dropDatabase()
 ## Create Collection
 
 ```js
-db.createCollection('posts')
+db.createCollection('Students')
 ```
 
 ## Show Collections
@@ -50,12 +50,12 @@ show collections
 ## Insert Document
 
 ```js
-db.posts.insertOne({
-  title: 'Post 1',
-  body: 'Body of post.',
-  category: 'News',
-  likes: 1,
-  tags: ['news', 'events'],
+db.Students.insertOne({
+  Name: 'Ardra',
+  Age: 22,
+  Course: 'MSc DA',
+  No: 8,
+  Interest: ['Reading', 'Music'],
   date: Date()
 })
 ```
@@ -65,36 +65,35 @@ db.posts.insertOne({
 ```js
 db.posts.insertMany([
   {
-    title: 'Post 2',
-    body: 'Body of post.',
-    category: 'Event',
-    likes: 2,
-    tags: ['news', 'events'],
-    date: Date()
+  Name: 'Aleena',
+  Age: 22,
+  Course: 'MSc DA',
+  No: 9,
+  Interest: ['Reading', 'Writing'],
+  date: Date()
   },
   {
-    title: 'Post 3',
-    body: 'Body of post.',
-    category: 'Tech',
-    likes: 3,
-    tags: ['news', 'events'],
-    date: Date()
+  Name: 'Stalin',
+  Age: 22,
+  Course: 'MSc GA',
+  No: 4,
+  Interest: ['Dance', 'Music'],
+  date: Date()
   },
   {
-    title: 'Post 4',
-    body: 'Body of post.',
-    category: 'Event',
-    likes: 4,
-    tags: ['news', 'events'],
-    date: Date()
+  Name: 'Navas',
+  Age: 22,
+  Course: 'MSc MI',
+  No: 16,
+  Interest: ['Sports'],
+  date: Date()
   },
-  {
-    title: 'Post 5',
-    body: 'Body of post.',
-    category: 'News',
-    likes: 5,
-    tags: ['news', 'events'],
-    date: Date()
+  { Name: 'Ajmala',
+  Age: 22,
+  Course: 'MSc MI',
+  No: 18,
+  Interest: ['Reading', 'Music'],
+  date: Date()
   }
 ])
 ```
@@ -102,13 +101,19 @@ db.posts.insertMany([
 ## Find All Documents
 
 ```js
-db.posts.find()
+db.Students.find()
+```
+
+## Find All Documents with pretty
+
+```js
+db.Students.find().pretty()
 ```
 
 ## Find Documents with Query
 
 ```js
-db.posts.find({ category: 'News' })
+db.Students.find({ Name:'Aleena' })
 ```
 
 ## Sort Documents
