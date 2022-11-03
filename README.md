@@ -4,6 +4,8 @@
 ```js
 >mongosh --version
 
+
+
 MongoDB shell version v5.0.13
 ```
 
@@ -19,6 +21,7 @@ MongoDB shell version v5.0.13
 ```js
 >db
 
+
 test
 ```
 
@@ -26,6 +29,7 @@ test
 
 ```js
 >show dbs
+
 
 admin   0.000GB
 blog    0.000GB
@@ -38,6 +42,7 @@ local   0.000GB
 ```js
 >use Big_Data
 
+
 switched to db big_data
 
 ```
@@ -47,6 +52,7 @@ switched to db big_data
 ```js
 >db.dropDatabase()
 
+
 { "ok" : 1 }
 ```
 
@@ -54,6 +60,7 @@ switched to db big_data
 
 ```js
 >db.createCollection('Students')
+
 
 { "ok" : 1 }
 
@@ -63,6 +70,7 @@ switched to db big_data
 
 ```js
 >show collections
+
 
 Students
 ```
@@ -142,6 +150,7 @@ Students
 
 ```js
 >db.Students.find()
+
 
 
 { "_id" : ObjectId("63638a03c3e198ff6a8392cf"), "Name" : "Ardra", "Age" : 22, "Course" : "MSc DA", "No" : 8, "Interest" : [ "Reading", "Music" ], "date" : "Thu Nov 03 2022 14:59:39 GMT+0530 (India Standard Time)" }
