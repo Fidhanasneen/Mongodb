@@ -3,7 +3,10 @@
 
 ```js
 mongosh --version
+
+MongoDB shell version v5.0.13
 ```
+
 
 ## Start the Mongo Shell
 
