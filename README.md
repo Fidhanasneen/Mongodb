@@ -63,7 +63,7 @@ db.Students.insertOne({
 ## Insert Multiple Documents
 
 ```js
-db.posts.insertMany([
+db.Students.insertMany([
   {
   Name: 'Aleena',
   Age: 22,
@@ -121,44 +121,44 @@ db.Students.find({ Name:'Aleena' })
 ### Ascending
 
 ```js
-db.posts.find().sort({ title: 1 })
+db.Students.find().sort({ title: 1 })
 ```
 
 ### Descending
 
 ```js
-db.posts.find().sort({ title: -1 })
+db.Students.find().sort({ title: -1 })
 ```
 
 ## Count Documents
 
 ```js
-db.posts.find().count()
-db.posts.find({ category: 'news' }).count()
+db.Students.find().count()
+db.Students.find({ category: 'news' }).count()
 ```
 
 ## Limit Documents
 
 ```js
-db.posts.find().limit(2)
+db.Students.find().limit(2)
 ```
 
 ## Chaining
 
 ```js
-db.posts.find().limit(2).sort({ title: 1 })
+db.Students.find().limit(2).sort({ title: 1 })
 ```
 
 ## Find One Document
 
 ```js
-db.posts.findOne({ likes: { $gt: 3 } })
+db.Students.findOne({ likes: { $gt: 3 } })
 ```
 
 ## Update Document
 
 ```js
-db.posts.updateOne({ title: 'Post 1' },
+db.Students.updateOne({ title: 'Post 1' },
 {
   $set: {
     category: 'Tech'
@@ -169,7 +169,7 @@ db.posts.updateOne({ title: 'Post 1' },
 ## Update Document or Insert if not Found
 
 ```js
-db.posts.updateOne({ title: 'Post 6' },
+db.Students.updateOne({ title: 'Post 6' },
 {
   $set: {
     title: 'Post 6',
@@ -185,7 +185,7 @@ db.posts.updateOne({ title: 'Post 6' },
 ## Increment Field (`$inc`)
 
 ```js
-db.posts.updateOne({ title: 'Post 1' },
+db.Students.updateOne({ title: 'Post 1' },
 {
   $inc: {
     likes: 2
@@ -196,7 +196,7 @@ db.posts.updateOne({ title: 'Post 1' },
 ## Update Multiple Documents
 
 ```js
-db.posts.updateMany({}, {
+db.Students.updateMany({}, {
   $inc: {
     likes: 1
   }
@@ -206,7 +206,7 @@ db.posts.updateMany({}, {
 ## Rename Field
 
 ```js
-db.posts.updateOne({ title: 'Post 2' },
+db.Students.updateOne({ title: 'Post 2' },
 {
   $rename: {
     likes: 'views'
@@ -217,20 +217,20 @@ db.posts.updateOne({ title: 'Post 2' },
 ## Delete a Document
 
 ```js
-db.posts.deleteOne({ title: 'Post 6' })
+db.Students.deleteOne({ title: 'Post 6' })
 ```
 
 ## Delete Multiple Documents
 
 ```js
-db.posts.deleteMany({ category: 'Tech' })
+db.Students.deleteMany({ category: 'Tech' })
 ```
 
 ## Greater & Less Than
 
 ```js
-db.posts.find({ views: { $gt: 2 } })
-db.posts.find({ views: { $gte: 7 } })
-db.posts.find({ views: { $lt: 7 } })
-db.posts.find({ views: { $lte: 7 } })
+db.Students.find({ views: { $gt: 2 } })
+db.Students.find({ views: { $gte: 7 } })
+db.Students.find({ views: { $lt: 7 } })
+db.Students.find({ views: { $lte: 7 } })
 ```
