@@ -1,4 +1,4 @@
-# MongoDB
+# MongoDB Cheat Sheet
 ## Check `monosh` Version
 
 ```js
