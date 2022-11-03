@@ -603,6 +603,7 @@ Students
 >db.Students.find().pretty()
 
 
+
 {
         "_id" : ObjectId("63638a03c3e198ff6a8392cf"),
         "Name" : "Ardra Rajeesh",
@@ -669,31 +670,176 @@ Students
 ## Rename Field
 
 ```js
-db.Students.updateOne({ Name: 'Aleena' },
+>db.Students.updateOne({ Name: 'Aleena' },
 {
   $rename: {
-    Name: 'Aleena Vals Kuryan'
+    Interest: 'Hobby'
   }
 })
+
+
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+
+>db.Students.find({Name:'Aleena'}).pretty()
+
+
+
+{
+        "_id" : ObjectId("6363a94f7ce8d232c5d49067"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "date" : "Thu Nov 03 2022 17:13:11 GMT+0530 (India Standard Time)",
+        "Hobby" : [
+                "Reading",
+                "Writing"
+        ]
+}
+
 ```
 
 ## Delete a Document
 
 ```js
-db.Students.deleteOne({ title: 'Post 6' })
+>db.Students.deleteOne({ Name: 'Ajmala' })
+
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+
 ```
 
 ## Delete Multiple Documents
 
 ```js
-db.Students.deleteMany({ category: 'Tech' })
+>db.Students.deleteMany({ Course: 'MSc MI' })
+
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+
 ```
 
 ## Greater & Less Than
 
 ```js
-db.Students.find({ views: { $gt: 2 } })
-db.Students.find({ views: { $gte: 7 } })
-db.Students.find({ views: { $lt: 7 } })
-db.Students.find({ views: { $lte: 7 } })
+>db.Students.find({ Age: { $gt: 20 } }).pretty()
+
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 23,
+        "Course" : "MSc GA",
+        "No" : 5,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("6363a8e45881447be22f55b8"),
+        "Name" : "Ardra Rajeesh",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "Interest" : [
+                "Reading",
+                "Music",
+                "Travel"
+        ],
+        "No" : 7,
+        "date" : "Thu Nov 03 2022 17:11:24 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("6363a94f7ce8d232c5d49067"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "date" : "Thu Nov 03 2022 17:13:11 GMT+0530 (India Standard Time)",
+        "Hobby" : [
+                "Reading",
+                "Writing"
+        ]
+}
+
+
+
+>db.Students.find({ No: { $gte: 8 } }).pretty()
+
+
+
+{
+        "_id" : ObjectId("6363a94f7ce8d232c5d49067"),
+        "Name" : "Aleena",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "No" : 9,
+        "date" : "Thu Nov 03 2022 17:13:11 GMT+0530 (India Standard Time)",
+        "Hobby" : [
+                "Reading",
+                "Writing"
+        ]
+}
+
+
+
+
+>db.Students.find({ No: { $lt: 7 } }).pretty()
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 23,
+        "Course" : "MSc GA",
+        "No" : 5,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+
+
+
+
+>db.Students.find({ No: { $lte: 7 } }).pretty()
+
+
+
+{
+        "_id" : ObjectId("63638af8c3e198ff6a8392d5"),
+        "Name" : "Stalin",
+        "Age" : 23,
+        "Course" : "MSc GA",
+        "No" : 5,
+        "Interest" : [
+                "Dance",
+                "Music"
+        ],
+        "date" : "Thu Nov 03 2022 15:03:44 GMT+0530 (India Standard Time)"
+}
+{
+        "_id" : ObjectId("6363a8e45881447be22f55b8"),
+        "Name" : "Ardra Rajeesh",
+        "Age" : 22,
+        "Course" : "MSc DA",
+        "Interest" : [
+                "Reading",
+                "Music",
+                "Travel"
+        ],
+        "No" : 7,
+        "date" : "Thu Nov 03 2022 17:11:24 GMT+0530 (India Standard Time)"
+}
+
+
 ```
